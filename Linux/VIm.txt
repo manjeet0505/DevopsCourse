@@ -1,0 +1,47 @@
+1. Install Vim
+sudo apt install vim -y
+
+ Meaning:
+
+sudo → run as admin
+apt → package manager (Ubuntu)
+install vim → install Vim editor
+-y → auto confirm installation
+
+ What happened:
+System downloaded and installed Vim from Ubuntu repositories.
+
+ 2. Open Vim
+vim filename.txt
+
+ Meaning:
+
+Opens file in Vim
+If file doesn’t exist → it creates one
+ 3. Enter Insert Mode
+
+Press:
+
+i
+
+ Meaning:
+
+Switch to insert mode (so you can type)
+ 4. Write Text
+
+ You typed some content inside the file
+
+ 5. Save and Exit
+
+Press:
+
+ESC → :wq
+
+ Meaning:
+
+ESC → exit insert mode
+:w → save file
+:q → quit Vim
+ One-line Summary (Interview Style)
+
+ “I installed Vim using apt package manager on Ubuntu, created and edited a file using Vim commands, and saved changes using command mode.”
