@@ -1,0 +1,72 @@
+. File Path & Access
+ Absolute Path
+/opt/devops/test/file.txt
+
+ Starts from root /
+ Works from anywhere
+
+ Relative Path
+devops/test/file.txt
+
+ Depends on current directory
+
+ Home Path Shortcut
+~/devops/test/file.txt
+
+ ~ = /home/manjeet
+
+ Commands you practiced
+ Navigate directories
+cd /opt
+cd ~/devops
+ Check current location
+pwd
+ List files
+ls
+ls -l
+ 2. Root Directory Concept
+/
+
+ This is the top-level directory in Linux
+
+Important folders:
+
+/home → user files
+/opt → optional software
+/etc → config files
+/var → logs/data
+
+ You need sudo to modify many of these
+
+ 3. File Linking (Important )
+ Soft Link (Symbolic Link)
+ln -s original.txt link.txt
+
+ Acts like shortcut
+ If original is deleted → link breaks
+
+ Hard Link
+ln original.txt link.txt
+
+ Same data, different name
+ Still works even if original is deleted
+
+ 4. File Types in Linux
+ Regular File
+file.txt
+ Directory
+test/
+ Symbolic Link
+link -> file.txt
+ Device File
+
+ Hardware-related (advanced)
+
+ Check file type
+ls -l
+
+ First character tells type:
+
+- → file
+d → directory
+l → link
