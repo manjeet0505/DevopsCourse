@@ -8,3 +8,36 @@ winget install Amazon.AWSCLI
 
 Verify Installation
 aws --version
+
+
+
+Ubuntu / Debian Linux
+
+sudo apt update
+curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+sudo apt install unzip -y
+
+unzip awscliv2.zip
+sudo ./aws/install
+
+Verify
+aws --version
+
+
+
+Amazon Linux
+
+sudo yum install unzip -y
+curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+
+unzip awscliv2.zip
+sudo ./aws/install
+
+
+macOS
+
+Using Homebrew
+brew install awscli
+
+Verify
+aws --version
