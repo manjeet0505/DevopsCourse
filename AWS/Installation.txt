@@ -1,0 +1,10 @@
+Windows
+
+Using Chocolatey
+choco install awscli -y
+
+Using Winget
+winget install Amazon.AWSCLI
+
+Verify Installation
+aws --version
