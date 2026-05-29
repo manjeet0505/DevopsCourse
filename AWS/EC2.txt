@@ -1,0 +1,14 @@
+EC2 — Elastic Compute Cloud
+
+Instance types
+t3, m5, c5, r5, p3, i3
+
+Root storage
+EBS-backed or Instance Store
+
+Placement groups
+Cluster / Spread / Partition
+
+Purchasing options
+On-Demand / Reserved / Spot
+
