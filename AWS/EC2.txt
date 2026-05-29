@@ -12,3 +12,14 @@ Cluster / Spread / Partition
 Purchasing options
 On-Demand / Reserved / Spot
 
+Instance lifecycle - 
+
+Pending → Running → Stopping → Stopped → Terminated
+
+What happens to data when you stop vs terminate an EC2 instance?
+
+Stop: EBS root volume is preserved, RAM is cleared, public IP (non-Elastic) is released. Terminate: Root EBS is deleted by default (DeleteOnTermination=true). Any attached non-root EBS volumes persist unless you explicitly set delete. Instance store volumes = data lost on BOTH stop and terminate.
+
+Spot instance interruption — how to handle it?
+
+AWS gives a 2-minute warning via EC2 metadata (instance-action endpoint) and CloudWatch Events. Use Spot Hibernation, Spot Fleet with diversified pools, or architect stateless/fault-tolerant workloads. Not good for databases or long-running tasks unless you checkpoint state to S3/EBS.
