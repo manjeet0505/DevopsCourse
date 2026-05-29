@@ -1,0 +1,8 @@
+EBS — Elastic Block Store
+
+Volume     type	Use case	       Max IOPS	                   Notes
+gp3	       General purpose	       16,000	          Baseline 3000 IOPS, decoupled from size
+gp2	       General purpose (old)   16,000	          IOPS tied to size (3 IOPS/GB)
+io2 / io1	High perf DBs	       64,000+	          Supports Multi-Attach (same AZ only)
+st1	       Big data / streaming	   500	              Throughput optimized HDD, not bootable
+sc1	       Cold archive	           250	              Lowest cost HDD, not bootable

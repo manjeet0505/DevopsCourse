@@ -23,3 +23,7 @@ Stop: EBS root volume is preserved, RAM is cleared, public IP (non-Elastic) is r
 Spot instance interruption — how to handle it?
 
 AWS gives a 2-minute warning via EC2 metadata (instance-action endpoint) and CloudWatch Events. Use Spot Hibernation, Spot Fleet with diversified pools, or architect stateless/fault-tolerant workloads. Not good for databases or long-running tasks unless you checkpoint state to S3/EBS.
+
+What is EC2 Hibernate?
+
+Saves RAM contents to EBS root volume → instance appears stopped but resumes instantly (no OS boot). Requirements: instance must have encrypted EBS root. RAM size must be < root EBS size. Max 60 days. Useful for apps with long init processes.
