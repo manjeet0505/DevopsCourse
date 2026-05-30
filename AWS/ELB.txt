@@ -1,0 +1,7 @@
+ELB — Elastic Load Balancer
+
+Type	              Layer	         Protocol	            Best for
+ALB (Application)	  Layer 7	     HTTP/HTTPS/WebSocket	Microservices, path/host routing, containers
+NLB (Network)	      Layer 4	     TCP/UDP/TLS	        Ultra-low latency, gaming, IoT, static IP
+GLB (Gateway)	      Layer 3	     GENEVE	                Security appliances (firewalls, IDS)
+CLB (Classic)	      L4+L7	         HTTP/HTTPS/TCP	        Legacy only — avoid for new apps

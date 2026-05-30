@@ -6,3 +6,16 @@ gp2	       General purpose (old)   16,000	          IOPS tied to size (3 IOPS/GB
 io2 / io1	High perf DBs	       64,000+	          Supports Multi-Attach (same AZ only)
 st1	       Big data / streaming	   500	              Throughput optimized HDD, not bootable
 sc1	       Cold archive	           250	              Lowest cost HDD, not bootable
+
+
+Can you attach one EBS volume to multiple EC2 instances?
+
+Yes, but only io1/io2 volumes support Multi-Attach. Both instances must be in the SAME Availability Zone. The file system must be cluster-aware (e.g., GFS2). For gp2/gp3, attachment is single instance only. EBS is AZ-locked — to move across AZs, take a snapshot → create new volume from snapshot in target AZ.
+
+How do you encrypt an existing unencrypted EBS volume?
+
+You cannot directly encrypt an existing volume. Workflow: Create snapshot of the unencrypted volume → Copy snapshot with encryption enabled → Create new EBS from encrypted snapshot → Attach to instance. Alternatively use AWS Backup or Data Lifecycle Manager.
+
+EBS vs Instance Store — key differences?
+
+EBS: Network-attached, persists across stop/reboot, can be detached, supports snapshots. Instance Store: Physically attached to host, ephemeral (lost on stop/terminate), higher I/O throughput (NVMe), cannot be snapshotted. Use instance store for temp files, buffers, caches only.
