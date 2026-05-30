@@ -5,3 +5,17 @@ ALB (Application)	  Layer 7	     HTTP/HTTPS/WebSocket	Microservices, path/host r
 NLB (Network)	      Layer 4	     TCP/UDP/TLS	        Ultra-low latency, gaming, IoT, static IP
 GLB (Gateway)	      Layer 3	     GENEVE	                Security appliances (firewalls, IDS)
 CLB (Classic)	      L4+L7	         HTTP/HTTPS/TCP	        Legacy only — avoid for new apps
+
+
+
+Client request  →  ALB Listener (443) → Rule: /api/* → TG1 → EC2 instances
+
+ALB can route by: path (/api vs /web), host header (api.example.com), HTTP headers, query string, source IP. Target groups can be: EC2, IP addresses, Lambda, containers (ECS).
+
+ALB vs NLB — which one and when?
+
+ALB: HTTP/HTTPS aware, content-based routing, supports sticky sessions via cookie, slow-start mode, WAF integration, returns client IP via X-Forwarded-For. NLB: TCP/UDP, sub-millisecond latency, static Elastic IP per AZ (useful for whitelisting), preserves source IP natively, handles millions of req/s. Use NLB for gaming, financial trading, real-time apps. Use ALB for web apps, APIs, microservices.
+
+What is a Target Group and health checks?
+
+Target group = logical group of targets (EC2, IP, Lambda). Health check: ELB sends periodic requests (HTTP GET or TCP ping) to registered targets. If target fails N consecutive checks, it's marked unhealthy and removed from rotation. Key settings: interval, timeout, healthy threshold, unhealthy threshold, path (/health), success codes (200-299).
